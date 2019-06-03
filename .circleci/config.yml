@@ -25,7 +25,7 @@ jobs:
           name: Code Coverage Tests
           command: |
             . venv/bin/activate
-            coverage run python3 tests.py  # -m pytest
+            coverage run tests.py  # -m pytest
             coverage report
             coverage html  # open htmlcov/index.html in a browser
       - store_artifacts:
