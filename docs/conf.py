@@ -5,50 +5,48 @@ from __future__ import division, print_function, unicode_literals
 import os
 import sys
 from configparser import RawConfigParser
-
-
 import sphinx_rtd_theme
-from sphinx import version_info
 
 sys.path.insert(0, os.path.abspath('..'))
 sys.path.append(os.path.dirname(__file__))
-
-
 sys.path.append(os.path.abspath('_ext'))
+
 extensions = [
     'sphinx.ext.autosectionlabel',
     'sphinx.ext.autodoc',
+    'sphinx.ext.todo',
+    'sphinx.ext.coverage',    
     'sphinx.ext.intersphinx',
-    'sphinxcontrib.httpdomain',
-    'doc_extensions',
-    'sphinx_tabs.tabs',
-    'sphinx-prompt',
-    'recommonmark',
-    'notfound.extension',
+    #'doc_extensions',
+    #'sphinx_tabs.tabs',
+    #'sphinx-prompt',
+    #'recommonmark',
+    #'notfound.extension',
 ]
 templates_path = ['_templates']
 
 source_suffix = ['.rst', '.md']
 
 master_doc = 'index'
-project = u'Read the Docs'
-copyright = '2019, Read the Docs'
+project = u'Methpype'
+copyright = '2019, Life Epigenetics'
+author = 'Life Epigenetics'
 version = '1.0'
 release = version
-exclude_patterns = ['_build']
+exclude_patterns = []
 default_role = 'obj'
 intersphinx_mapping = {
     'python': ('https://python.readthedocs.io/en/latest/', None),
     'sphinx': ('https://sphinx.readthedocs.io/en/latest/', None),
 }
-htmlhelp_basename = 'ReadTheDocsdoc'
+htmlhelp_basename = 'MethpypeDoc'
 latex_documents = [
-    ('index', 'ReadTheDocs.tex', u'Read the Docs Documentation',
-     u'Eric Holscher, Charlie Leifer, Bobby Grace', 'manual'),
+    ('index', 'MethpypeDoc.tex', u'Methpype Documentation',
+     u'Life Epigenetics', 'manual'),
 ]
 man_pages = [
-    ('index', 'read-the-docs', u'Read the Docs Documentation',
-     [u'Eric Holscher, Charlie Leifer, Bobby Grace'], 1)
+    ('index', 'methpypedoc', u'Methpype Documentation',
+     ['Life Epigenetics'], 1),
 ]
 
 exclude_patterns = [
@@ -71,6 +69,12 @@ html_theme_options = {
     'display_version': False,
 }
 
+
+epub_title = project
+epub_author = author
+epub_publisher = author
+epub_copyright = copyright
+
 # Activate autosectionlabel plugin
 autosectionlabel_prefix_document = True
 
@@ -84,6 +88,3 @@ notfound_context = {
 <p>Try using the search box or go to the homepage.</p>
 ''',
 }
-
-def setup(app):
-    app.add_stylesheet('css/sphinx_prompt_css.css')
