@@ -13,11 +13,6 @@ from sphinx import version_info
 sys.path.insert(0, os.path.abspath('..'))
 sys.path.append(os.path.dirname(__file__))
 
-def get_version():
-    """Return package version from setup.cfg."""
-    config = RawConfigParser()
-    config.read(os.path.join('..', 'setup.cfg'))
-    return config.get('metadata', 'version')
 
 sys.path.append(os.path.abspath('_ext'))
 extensions = [
@@ -38,7 +33,7 @@ source_suffix = ['.rst', '.md']
 master_doc = 'index'
 project = u'Read the Docs'
 copyright = '2019, Read the Docs'
-version = get_version()
+version = '1.0'
 release = version
 exclude_patterns = ['_build']
 default_role = 'obj'
