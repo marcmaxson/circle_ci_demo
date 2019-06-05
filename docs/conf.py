@@ -5,7 +5,7 @@ from __future__ import division, print_function, unicode_literals
 import os
 import sys
 from configparser import RawConfigParser
-import timezone
+
 
 import sphinx_rtd_theme
 from sphinx import version_info
@@ -37,9 +37,7 @@ source_suffix = ['.rst', '.md']
 
 master_doc = 'index'
 project = u'Read the Docs'
-copyright = '2010-{}, Read the Docs, Inc & contributors'.format(
-    timezone.now().year
-)
+copyright = '2019, Read the Docs'
 version = get_version()
 release = version
 exclude_patterns = ['_build']
